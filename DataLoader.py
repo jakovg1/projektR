@@ -20,7 +20,8 @@ torch.backends.cudnn.benchmark = False
 light_aug = A.Compose([
 	A.OneOf([
 		A.Flip(),
-		A.Rotate(limit=180, border_mode=0, value=0, mask_value=0),
+		#A.Rotate(limit=180, border_mode=0, value=0, mask_value=0),
+		A.Rotate(limit=180, border_mode=0, mask_value=0),
 		A.ElasticTransform(border_mode=0, value=0),
 
 		A.GaussNoise(var_limit=(50,100), mean=0),
