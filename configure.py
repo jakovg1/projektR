@@ -1,14 +1,14 @@
 class Config:
   def __init__(self):
 #====data paths
-    self.train_orig = "/notebooks/UNet/Train_images/train" #train dataset
-    self.valid_orig = "/notebooks/UNet/Validation_images/validation" #validation dataset
-    self.test_orig = "/notebooks/UNet/Test_images/test" #test dataset
+    self.train_orig = "/projektR/notebooks/UNet/Train_images/train" #train dataset
+    self.valid_orig = "/projektR/notebooks/UNet/Validation_images/validation" #validation dataset
+    self.test_orig = "/projektR/notebooks/UNet/Test_images/test" #test dataset
     self.extension = "model0"
     self.expname = "Model 0 Only LAD Scaled size"
-    self.checkpoints = "/notebooks/UNet/" + self.extension + "/checkpoints/"
-    self.optimizer = "/notebooks/UNet/" + self.extension + "/optimizer/"
-    self.test_results = "/notebooks/UNet/" + self.extension + "/test/"
+    self.checkpoints = "/projektR/notebooks/UNet/" + self.extension + "/checkpoints/"
+    self.optimizer = "/projektR/notebooks/UNet/" + self.extension + "/optimizer/"
+    self.test_results = "/projektR/notebooks/UNet/" + self.extension + "/test/"
 #====data configure
     self.seed_value = 0
     self.imgsize = [848,848] #[1184,1184]
