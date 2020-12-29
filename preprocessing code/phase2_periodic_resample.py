@@ -1,8 +1,8 @@
 import os
 from natsort import natsorted, ns
 import shutil
-from configure import Config
-config = Config()
+from preprocess_config import PreprocessConfig
+config = PreprocessConfig()
 
 #kod gdje uzima svaku petu sliku (no varijabla) iz originalnog dataseta i kopira ju u novi folder
 # svaku petu sliku sam uzimala da bi se smanjio broj medusobno slicnih slika
@@ -22,8 +22,8 @@ dst_mask = r"T:\\Dataset_vascular\\"+ext1+r"_images_full_sampled\\"+ext2+"_masks
 path = "/content/projektR/notebooks/UNet/Train_images"
 img_dir = path + "/extracted_train/"
 mask_dir = path + "/extracted_train_masks/"
-img_dst = path + "/resampled_train/"
-mask_dst = path + "/resampled_train_masks/"
+dst_img = path + "/resampled_train/"
+dst_mask = path + "/resampled_train_masks/"
 
 if not os.path.exists(dst_img):
     os.makedirs(dst_img)

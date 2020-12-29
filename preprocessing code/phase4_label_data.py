@@ -18,8 +18,8 @@ dst_img = r"T:\\Dataset_vascular\\"+ext1+r"_images_full_sampled_patch64_strat\\"
 path = "/content/projektR/notebooks/UNet/Train_images"
 img_dir = path + "/resampled_train/"
 mask_dir = path + "/resampled_train_masks/"
-img_dst = path + "/train/"
-mask_dst = path + "/train_masks/"
+dst_img = path + "/train/"
+dst_mask = path + "/train_masks/"
 
 img_list = natsorted(os.listdir(img_dir), alg=ns.IGNORECASE)
 mask_list = natsorted(os.listdir(mask_dir), alg=ns.IGNORECASE)

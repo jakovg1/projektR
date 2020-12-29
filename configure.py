@@ -32,6 +32,4 @@ class Config:
     
     
 #====preprocessing configure
-    self.patch_size = 64
-    self.no_of_patches = 19
-    self.resample_rate = 4
+#====... placed in different file: preprocess_config

@@ -3,8 +3,8 @@ from simplejpeg import decode_jpeg
 import numpy as np
 from natsort import natsorted,ns
 import cv2
-from configure import Config
-config = Config()
+from preprocess_config import PreprocessConfig
+config = PreprocessConfig()
 
 #256-5, 192-7, 128-11, 96-13, 64-19 -> namjesteni su patch_size i no_patches tako da bude patch_size*no_patches minimalno veci od velicine slike
 # no mozda bi bilo bolje staviti vise no_patches, npr. size=64, no_patches=23, tako da se dobije vise preklapajucih patcheva, a s time i vise

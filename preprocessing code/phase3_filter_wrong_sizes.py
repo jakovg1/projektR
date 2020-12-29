@@ -3,8 +3,8 @@ from simplejpeg import decode_jpeg
 import numpy as np
 from natsort import natsorted,ns
 import cv2
-from configure import Config
-config = Config()
+from preprocess_config import PreprocessConfig
+config = PreprocessConfig()
 
 #kod za provjeru velicine patcheva
 
