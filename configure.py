@@ -29,3 +29,9 @@ class Config:
     
     self.cuda_dev = 1
     self.cuda_dev_list = "0,1"
+    
+    
+#====preprocessing configure
+    self.patch_size = 64
+    self.no_of_patches = 19
+    self.resample_rate = 4
