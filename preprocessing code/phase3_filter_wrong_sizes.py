@@ -19,6 +19,7 @@ def execute(ext1, ext2):
 	img_dir = path + "/resampled_" + ext2 + "/"
 	mask_dir = path + "/resampled_" + ext2 + "_masks/"
 
+
 	img_list = natsorted(os.listdir(img_dir), alg=ns.IGNORECASE)
 	mask_list = natsorted(os.listdir(mask_dir), alg=ns.IGNORECASE)
 
