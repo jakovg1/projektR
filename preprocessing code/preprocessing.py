@@ -10,6 +10,6 @@ def execute_preprocessing(ext1, ext2):
 	phase4_label_data.execute(ext1, ext2)
 	
 execute_preprocessing('Train', 'train')
-execute_preprocessing('Validate', 'validate')
+execute_preprocessing('Validation', 'validation')
 #execute_preprocessing('Test', 'test')
 
