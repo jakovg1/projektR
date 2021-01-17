@@ -10,9 +10,6 @@ def execute(ext1, ext2):
 	#kod gdje uzima svaku petu sliku (no varijabla) iz originalnog dataseta i kopira ju u novi folder
 	# svaku petu sliku sam uzimala da bi se smanjio broj medusobno slicnih slika
 
-	ext1 = "Train"
-	ext2 = "train"
-
 	no = config.resample_rate
 
 	'''
