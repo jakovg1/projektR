@@ -14,9 +14,6 @@ def execute(ext1, ext2):
 	patch_size = config.patch_size
 	no_patches = config.no_of_patches #in one direction, equal in all directions
 
-	# FOR TRAINING:
-	#ext1 = "Train"
-	#ext2 = "train"
 
 
 
@@ -38,8 +35,8 @@ def execute(ext1, ext2):
 
 
 
-	#for i in range(0,4):				##PROMIJENITI, OVO JE PROBNO
-	for i in range(0,len(img_list)):
+	for i in range(0,4):				##PROMIJENITI, OVO JE PROBNO
+	#for i in range(0,len(img_list)):
 		with open(os.path.join(img_dir, img_list[i]), 'rb') as f1:
 			image = decode_jpeg(f1.read())[:, :, 1]
 		with open(os.path.join(mask_dir, mask_list[i]), 'rb') as f2:
