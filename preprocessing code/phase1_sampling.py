@@ -36,17 +36,10 @@ def execute(ext1, ext2):
 	img_list = natsorted(os.listdir(img_dir), alg=ns.IGNORECASE)
 	mask_list = natsorted(os.listdir(mask_dir), alg=ns.IGNORECASE)
 
-	'''//
-	print(mask_dst)
-	print(img_dst)
-
-	os.makedirs(mask_dst + "bla")
-	'''
 
 
-
-	#for i in range(0,len(img_list)):
-	for i in range(0,4):				##PROMIJENITI, OVO JE PROBNO
+	#for i in range(0,4):				##PROMIJENITI, OVO JE PROBNO
+	for i in range(0,len(img_list)):
 		with open(os.path.join(img_dir, img_list[i]), 'rb') as f1:
 			image = decode_jpeg(f1.read())[:, :, 1]
 		with open(os.path.join(mask_dir, mask_list[i]), 'rb') as f2:
