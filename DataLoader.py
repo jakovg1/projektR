@@ -87,14 +87,28 @@ class ImageDataset(d.Dataset):
 		self.path_img = self.datapath + '/'
 		self.path_mask = self.datapath + '_masks/'
 		
-		self.imglist = natsorted(glob.glob(self.path_img + '*.jpg'), alg=ns.IGNORECASE)
-		self.masklist = natsorted(glob.glob(self.path_mask + '*.jpg'), alg=ns.IGNORECASE)
+		#added to support .jpeg and .jpg files
+		self.file_extensions = ['*.jpg', '*.jpeg']
+		
+		self.imglist = self.load_files(self.path_img)
+		self.masklist = self.load_files(self.path_mask)
+		
+		#self.imglist = natsorted(glob.glob(self.path_img + '*.jpg'), alg=ns.IGNORECASE)
+		#self.masklist = natsorted(glob.glob(self.path_mask + '*.jpg'), alg=ns.IGNORECASE)
+		
+		
 		#if(center==True):
 		#	self.img_mean = self.center_data(imglist)
 
 	def __len__(self):
 		return len(os.listdir(self.path_img))
-
+		
+	def load_files(self, path):
+		files = []
+		for ext in self.file_extensions:
+			files.extend(glob.glob(path + ext))
+		return natsorted(files, alg=ns.IGNORECASE)
+		
 	def __getitem__(self, idx):
 		with open(os.path.join(self.path_img, self.imglist[idx]), 'rb') as f1:
 			image = decode_jpeg(f1.read())[:,:,1]
