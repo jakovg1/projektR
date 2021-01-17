@@ -86,38 +86,24 @@ class ImageDataset(d.Dataset):
 		self.datapath = datapath
 		self.path_img = self.datapath + '/'
 		self.path_mask = self.datapath + '_masks/'
-		
-		#added to support .jpeg and .jpg files
-		self.file_extensions = ['*.jpg', '*.jpeg']
-		
-		self.imglist = self.load_files(self.path_img)
-		self.masklist = self.load_files(self.path_mask)
-		
-		#self.imglist = natsorted(glob.glob(self.path_img + '*.jpg'), alg=ns.IGNORECASE)
-		#self.masklist = natsorted(glob.glob(self.path_mask + '*.jpg'), alg=ns.IGNORECASE)
-		
-		
+
+		self.imglist = natsorted(glob.glob(self.path_img + '*.jpeg'), alg=ns.IGNORECASE)
+		self.masklist = natsorted(glob.glob(self.path_mask + '*.jpeg'), alg=ns.IGNORECASE)
 		#if(center==True):
 		#	self.img_mean = self.center_data(imglist)
 
 	def __len__(self):
 		return len(os.listdir(self.path_img))
-		
-	def load_files(self, path):
-		files = []
-		for ext in self.file_extensions:
-			files.extend(glob.glob(path + ext))
-		return natsorted(files, alg=ns.IGNORECASE)
-		
+
 	def __getitem__(self, idx):
 		with open(os.path.join(self.path_img, self.imglist[idx]), 'rb') as f1:
 			image = decode_jpeg(f1.read())[:,:,1]
 		with open(os.path.join(self.path_mask, self.masklist[idx]), 'rb') as f2:
 			mask = decode_jpeg(f2.read())[:,:,1]
-		
+
 		#if(center==True):
 		#	image = image - self.img_mean
-			
+
 		if(config.extension=="model12"):
 			augmented = light_aug(image=image, mask=mask)
 			image = augmented['image']
@@ -135,7 +121,7 @@ class ImageDataset(d.Dataset):
 		image = resized['image']
 		mask = resized['mask']
 		sample = {'image': image, 'mask': mask}  
-		
+
 		sample['image'] = np.expand_dims(sample['image'], axis=0)
 		sample['mask'] = np.expand_dims(sample['mask'], axis=0)
 		sample['image'].astype(float)
@@ -147,9 +133,9 @@ class ImageDataset(d.Dataset):
 
 		#sample['image'] = (sample['image']/255)*2 -1 #image being rescaled to contain values between -1 to 1 for BCE Loss
 		#sample['mask'] = (sample['mask']/255)*2 -1
-		
+
 		return sample
-		
+
 	def center_data(self, list):
 		num_of_img = len(list)
 		mean_img = np.zeros((config.imgsize[0], config.imgsize[1]), dtype=float64)
@@ -157,7 +143,7 @@ class ImageDataset(d.Dataset):
 			img = cv2.imread(file, cv2.IMREAD_GRAYSCALE)
 			mean_img += img / num_of_img
 		return mean_img
-		
+
 	def normalize_data_std(self, list):
 		num_of_img = len(list)
 		std_img = np.zeros((config.imgsize[0], config.imgsize[1]), dtype=float64)
@@ -166,4 +152,3 @@ class ImageDataset(d.Dataset):
 			img = cv2.resize(img, (config.imgsize[0], config.imgsize[1]), interpolation = cv2.INTER_LINEAR)
 			std_img += (img - self.mean_img)^2
 		return sqrt(std_img / num_of_img)
-		
