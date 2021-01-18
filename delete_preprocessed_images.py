@@ -15,7 +15,7 @@ folders.append("/content/projektR/notebooks/UNet/Train_images/extracted_train")
 folders.append("/content/projektR/notebooks/UNet/Train_images/extracted_train_masks")
 
 folders.append("/content/projektR/notebooks/UNet/Validation_images/validation")
-folders.append("/content/projektR/notebooks/UNet/Validation_images/validation")
+folders.append("/content/projektR/notebooks/UNet/Validation_images/validation_masks")
 folders.append("/content/projektR/notebooks/UNet/Validation_images/resampled_validation")
 folders.append("/content/projektR/notebooks/UNet/Validation_images/resampled_validation_masks")
 folders.append("/content/projektR/notebooks/UNet/Validation_images/extracted_validation")
@@ -31,3 +31,4 @@ for folder in folders:
 				shutil.rmtree(file_path)
 		except Exception as e:
 			print('Failed to delete %s. Reason: %s' % (file_path, e))
+	print("Deleted contents of folder {}".format(folder))

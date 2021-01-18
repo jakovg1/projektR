@@ -24,4 +24,4 @@ folders.append(validation_masks_path)
 
 # path joining version for other paths
 for folder in folders:
-	print ("Folder {} contains {} files.".format(folder, len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])))
+	print ("Folder {} contains {} files.".format(folder, len([name for name in os.listdir(folder) if os.path.isfile(os.path.join(folder, name))])))
