@@ -5,6 +5,8 @@ from natsort import natsorted,ns
 import cv2
 import shutil
 import random
+from preprocess_config import PreprocessConfig
+config = PreprocessConfig()
 
 '''
 ext1 = "Train"
