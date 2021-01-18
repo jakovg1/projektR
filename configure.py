@@ -1,14 +1,20 @@
 class Config:
   def __init__(self):
 #====data paths
-    self.train_orig = "/content/projektR/notebooks/UNet/Train_images/train" #train dataset
-    self.valid_orig = "/content/projektR/notebooks/UNet/Validation_images/validation" #validation dataset
-    self.test_orig = "/content/projektR/notebooks/UNet/Test_images/test" #test dataset
-    self.extension = "model0"
-    self.expname = "Model 0 Only LAD Scaled size"
-    self.checkpoints = "/content/projektR/notebooks/UNet/" + self.extension + "/checkpoints/"
-    self.optimizer = "/content/projektR/notebooks/UNet/" + self.extension + "/optimizer/"
-    self.test_results = "/content/projektR/notebooks/UNet/" + self.extension + "/test/"
+	#LOCAL
+	self.path_short =	"C:/Users/Jakov/Documents/Misc/FER - jakov/5. semestar/Projekt R/Materijali - segm. srca/Git-Projekt R/notebooks/UNet/"
+	
+	#GOOGLE COLAB
+	#self.path_short =	"/content/projektR/notebooks/UNet/"
+	self.train_orig = self.path_short + "Train_images/train" #train dataset
+	self.valid_orig = self.path_short + "Validation_images/validation" #validation dataset
+	self.test_orig = self.path_short + "Test_images/test" #test dataset
+	self.extension = "model0"
+	self.expname = "Model 0 Only LAD Scaled size"
+	self.checkpoints = self.path_short + self.extension + "/checkpoints/"
+	self.optimizer = self.path_short + self.extension + "/optimizer/"
+	self.test_results = self.path_short + self.extension + "/test/"
+	
 #====data configure
     self.seed_value = 0
     self.imgsize = [848,848] #[1184,1184]

@@ -17,7 +17,7 @@ dst_img = r"T:\\Dataset_vascular\\"+ext1+r"_images_full_sampled_patch64_strat\\"
 '''
 
 def execute(ext1, ext2):
-	path = "/content/projektR/notebooks/UNet/" + ext1 + "_images"
+	path = config.path_short + ext1 + "_images"
 	img_dir = path + "/resampled_" + ext2 + "/"
 	mask_dir = path + "/resampled_" + ext2 + "_masks/"
 	dst_img = path + "/" + ext2 + "/"

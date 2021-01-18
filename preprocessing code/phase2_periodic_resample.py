@@ -19,7 +19,7 @@ def execute(ext1, ext2):
 	dst_mask = r"T:\\Dataset_vascular\\"+ext1+r"_images_full_sampled\\"+ext2+"_masks\\"
 	'''
 
-	path = "/content/projektR/notebooks/UNet/" + ext1 + "_images"
+	path = config.path_short + ext1 + "_images"
 	img_dir = path + "/extracted_" + ext2 + "/"
 	mask_dir = path + "/extracted_" + ext2 + "_masks/"
 	dst_img = path + "/resampled_" + ext2 + "/"

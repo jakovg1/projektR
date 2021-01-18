@@ -19,7 +19,7 @@ def execute(ext1, ext2):
 
 	#LAD7
 	#path = r"C:\Users\Jakov\Documents\Misc\FER - jakov\5. semestar\Projekt R\Materijali - segm. srca\Git-Projekt R\notebooks\UNet\Train_images"
-	path = "/content/projektR/notebooks/UNet/" + ext1 + "_images"
+	path = config.path_short + ext1 + "_images"
 	img_dir = path + "/orig_" + ext2 + "/"
 	mask_dir = path + "/orig_" + ext2 + "_masks/"
 	img_dst = path + "/extracted_" + ext2 + "/"
