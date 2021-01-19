@@ -30,7 +30,7 @@ class Config:
 		self.gamma = 0.1
 		self.lr_epoch_step = 30
 		self.save_model_epoch = 2
-		self.num_work = 6
+		self.num_work = 0
 		
 		self.cuda_dev = 1
 		self.cuda_dev_list = "0,1"

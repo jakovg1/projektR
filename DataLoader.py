@@ -96,9 +96,9 @@ class ImageDataset(d.Dataset):
 		return len(os.listdir(self.path_img))
 
 	def __getitem__(self, idx):
-		print("IMGLIST SIZE: ", len(self.imglist))
-		print("MASKLIST SIZE: ", len(self.masklist))
-		print("CURRENT INDEX: ", idx)
+		#print("IMGLIST SIZE: ", len(self.imglist))
+		#print("MASKLIST SIZE: ", len(self.masklist))
+		#print("CURRENT INDEX: ", idx)
 
 		with open(os.path.join(self.path_img, self.imglist[idx]), 'rb') as f1:
 			image = decode_jpeg(f1.read())[:,:,1]
