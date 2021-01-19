@@ -51,7 +51,9 @@ def get_prec(pred, orig):
 	fp = cv.eq(float('inf')).sum().item()
 	tn = torch.isnan(cv).sum().item()
 	fn = cv.eq(0).sum().item()
-	prec = tp/(tp+fp)
+	prec = 0
+	if tp + fp != 0:
+		prec = tp/(tp+fp)
 	return prec
 
 def get_rec(pred, orig):
@@ -62,7 +64,9 @@ def get_rec(pred, orig):
 	fp = cv.eq(float('inf')).sum().item()
 	tn = torch.isnan(cv).sum().item()
 	fn = cv.eq(0).sum().item()
-	rec = tp/(tp+fn)
+	rec = 0
+	if tp + fn != 0:
+		rec = tp/(tp+fn)
 	return rec
 
 def get_iou(pred, orig):
@@ -73,7 +77,9 @@ def get_iou(pred, orig):
 	fp = cv.eq(float('inf')).sum().item()
 	tn = torch.isnan(cv).sum().item()
 	fn = cv.eq(0).sum().item()
-	iou_score = tp/(tp+fp+fn)
+	iou_score = 0
+	if tp + fp + fn != 0:
+		iou_score = tp/(tp+fp+fn)
 	return iou_score
 
 #==========================================================================
