@@ -36,7 +36,7 @@ def execute(ext1, ext2):
 
 
 	#for i in range(0,4):				##PROMIJENITI, OVO JE PROBNO
-	for i in range(0,len(img_list))		##RADI!!!!
+	for i in range(0,len(img_list)):		##RADI!!!!
 		with open(os.path.join(img_dir, img_list[i]), 'rb') as f1:
 			image = decode_jpeg(f1.read())[:, :, 1]
 		with open(os.path.join(mask_dir, mask_list[i]), 'rb') as f2:

@@ -60,18 +60,43 @@ def execute(ext1, ext2):
 	
 	#kopiraj slike na kojima nema krvnih zila -> uzima random sliku na kojoj nema krvne zile, ukupan broj mora biti jednak kao broj slika na kojima ima krvnih zila
 	#radi li ovo?
-	'''
+
 	idxr = random.sample(idx, len(idxv))
 	for i in idxr:
 		shutil.copy(mask_dir + mask_list[i], dst_mask + mask_list[i])
 		shutil.copy(img_dir + img_list[i], dst_img + img_list[i])
-	'''
+
 
 	#kopiraj slike na kojima ima zila
 	for i in idxv:
 		shutil.copy(mask_dir + mask_list[i], dst_mask + mask_list[i])
 		shutil.copy(img_dir + img_list[i], dst_img + img_list[i])
 
-	#print("Folder {} contains {} images".format(dst_img, len(idxv) + len(idxr) ))
-	print("Folder {} contains {} images".format(dst_img, len(idxv)))
+	id_total = idxv + idxr
+	print("Folder {} contains {} images".format(dst_img, len(id_total) ))
+	print("Folder {} contains {} images".format(dst_mask, len(id_total) ))
 	print("Copying complete.")
+	i = 0
+	
+	
+	# mask value tresholding 					#temporary!!!
+	print("Correcting black&white mask values...")
+	mask_list2 = natsorted(os.listdir(dst_mask), alg=ns.IGNORECASE)
+	treshold = config.black_white_treshold
+	
+	for file_index in range(0,len(mask_list2)):
+		print("Correcting values for image ", file_index " of ", len(mask_list2))
+		with open(os.path.join(dst_mask, mask_list2[file_index]), 'rb') as file:
+			mask = decode_jpeg(file.read())[: ,: ,1]
+
+		for i in range (len(mask)):
+			for j in range (len(mask[i])):
+				if mask[i][j] <= treshold:
+					mask[i][j] = 0
+				else:
+					mask[i][j] = 255
+		cv2.imwrite(dst_mask + mask_list2[file_index], mask)
+		
+		
+	
+	

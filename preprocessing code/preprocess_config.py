@@ -5,6 +5,8 @@ class PreprocessConfig:
 		self.no_of_patches = 19
 		self.resample_rate = 4
 		
+		self.black_white_treshold = 10
+		
 		
 		
 		#MAKE SURE THESE PATHS IN "configure.py" and "preprocess_config.py" match!
