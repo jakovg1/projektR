@@ -27,6 +27,7 @@ def execute(ext1, ext2):
 	for i in range(0,len(img_list)):
 		with open(os.path.join(img_dir, img_list[i]), 'rb') as f1:
 			image = decode_jpeg(f1.read())[:, :, 1]
+			#print("IMAGE ", img_list[i]," SIZE: ", image.shape[0], "x", image.shape[1]) # !!
 
 		if image.shape[0]!=patch_size or image.shape[1]!=patch_size:
 			print("Removing " ,img_list[i])
@@ -37,6 +38,7 @@ def execute(ext1, ext2):
 	for i in range(0,len(mask_list)):
 		with open(os.path.join(mask_dir, mask_list[i]), 'rb') as f1:
 			image = decode_jpeg(f1.read())[:, :, 1]
+			#print("IMAGE ", mask_list[i]," SIZE: ", image.shape[0], "x", image.shape[1]) # !!
 
 		if image.shape[0]!=patch_size or image.shape[1]!=patch_size:
 			print("Removing " ,mask_list[i])

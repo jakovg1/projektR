@@ -19,23 +19,23 @@ torch.backends.cudnn.benchmark = False
 
 light_aug = A.Compose([
 	A.OneOf([
-		A.Flip(),
-		A.Rotate(limit=180, border_mode=0, value=0, mask_value=0),
-		A.ElasticTransform(border_mode=0, value=0),
+		#A.Flip(),
+		#A.Rotate(limit=180, border_mode=0, value=0, mask_value=0),
+		#A.ElasticTransform(border_mode=0, value=0),
 
-		A.GaussNoise(var_limit=(50,100), mean=0),
-		A.Downscale(scale_min=0.8, scale_max=0.99),
+		#A.GaussNoise(var_limit=(50,100), mean=0),
+		#A.Downscale(scale_min=0.8, scale_max=0.99),
 
-		A.GaussianBlur(),
-		A.MotionBlur(),
-		A.MedianBlur(blur_limit=(3,5)),
+		#A.GaussianBlur(),
+		#A.MotionBlur(),
+		#A.MedianBlur(blur_limit=(3,5)),
 
-		A.RandomBrightnessContrast(brightness_limit=0.3, contrast_limit=0.3),
-		A.CLAHE(),
+		A.RandomBrightnessContrast(brightness_limit=[0.3,0.3], contrast_limit=[0.3,0.3]),
+		#A.CLAHE(),
 
 
 	]),
-], p=0.5)
+], p=1)
 
 medium_aug = A.Compose([
 	A.OneOf([
@@ -121,9 +121,9 @@ class ImageDataset(d.Dataset):
 			image = augmented['image']
 			mask = augmented['mask']
 
-		resized = res(image=image, mask=mask)
-		image = resized['image']
-		mask = resized['mask']
+		#resized = res(image=image, mask=mask)
+		#image = resized['image']
+		#mask = resized['mask']
 		sample = {'image': image, 'mask': mask}  
 
 		sample['image'] = np.expand_dims(sample['image'], axis=0)
