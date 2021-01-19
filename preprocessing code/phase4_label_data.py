@@ -85,7 +85,7 @@ def execute(ext1, ext2):
 	treshold = config.black_white_treshold
 	
 	for file_index in range(0,len(mask_list2)):
-		print("Correcting values for image ", file_index " of ", len(mask_list2))
+		print("Correcting values for image ", file_index ," of ", len(mask_list2))
 		with open(os.path.join(dst_mask, mask_list2[file_index]), 'rb') as file:
 			mask = decode_jpeg(file.read())[: ,: ,1]
 
@@ -97,6 +97,6 @@ def execute(ext1, ext2):
 					mask[i][j] = 255
 		cv2.imwrite(dst_mask + mask_list2[file_index], mask)
 		
-		
+	print("Correcting black&white mask values complete.")
 	
 	
