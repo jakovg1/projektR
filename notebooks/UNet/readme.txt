@@ -1,2 +1,2 @@
 	Train: LAD5 (slike: 200-220, 670-710) uključivo
-	Validate: LAD7 (slike: 370-390, 450-490)
+	Validate: C8_101 (270-1090, svaka deseta slika) - Mateov volumen
