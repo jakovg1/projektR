@@ -175,20 +175,24 @@ with experiment.train():
       iteri=iteri+1
 			
       train_accuracy = get_acc(outputs_train, masks_train)
-      writer.add_scalar('Train accuracy', train_accuracy, iteri)
-      experiment.log_metric("accuracy", train_accuracy, step=epoch*(len(train_dataset)/config.train_batchsize)+i)
+      if train_accuracy != 0:
+          writer.add_scalar('Train accuracy', train_accuracy, iteri)
+          experiment.log_metric("accuracy", train_accuracy, step=epoch*(len(train_dataset)/config.train_batchsize)+i)
       
       train_prec = get_prec(outputs_train, masks_train)
-      writer.add_scalar('Train precision', train_prec, iteri)
-      experiment.log_metric("precision", train_prec, step=epoch*(len(train_dataset)/config.train_batchsize)+i)
+      if train_prec != 0:
+          writer.add_scalar('Train precision', train_prec, iteri)
+          experiment.log_metric("precision", train_prec, step=epoch*(len(train_dataset)/config.train_batchsize)+i)
 
       train_rec = get_rec(outputs_train, masks_train)
-      writer.add_scalar('Train recall', train_rec, iteri)
-      experiment.log_metric("recall", train_rec, step=epoch*(len(train_dataset)/config.train_batchsize)+i)
+      if train_rec != 0:
+          writer.add_scalar('Train recall', train_rec, iteri)
+          experiment.log_metric("recall", train_rec, step=epoch*(len(train_dataset)/config.train_batchsize)+i)
 
       train_iou = get_iou(outputs_train, masks_train)
-      writer.add_scalar('Train IoU', train_iou, iteri)
-      experiment.log_metric("IoU", train_iou, step=epoch*(len(train_dataset)/config.train_batchsize)+i)
+      if train_iou != 0:
+          writer.add_scalar('Train IoU', train_iou, iteri)
+          experiment.log_metric("IoU", train_iou, step=epoch*(len(train_dataset)/config.train_batchsize)+i)
 
   
 		# Calculate Accuracy         
