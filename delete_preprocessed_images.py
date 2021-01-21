@@ -6,7 +6,7 @@ config = Config()
 
 folders = []
 
-#
+# Quick N Dirty - non-configurable
 folders.append("/content/projektR/notebooks/UNet/Train_images/train")
 folders.append("/content/projektR/notebooks/UNet/Train_images/train_masks")
 folders.append("/content/projektR/notebooks/UNet/Train_images/resampled_train")
@@ -20,6 +20,13 @@ folders.append("/content/projektR/notebooks/UNet/Validation_images/resampled_val
 folders.append("/content/projektR/notebooks/UNet/Validation_images/resampled_validation_masks")
 folders.append("/content/projektR/notebooks/UNet/Validation_images/extracted_validation")
 folders.append("/content/projektR/notebooks/UNet/Validation_images/extracted_validation_masks")
+
+folders.append("/content/projektR/notebooks/UNet/Test_images/test")
+folders.append("/content/projektR/notebooks/UNet/Test_images/test_masks")
+folders.append("/content/projektR/notebooks/UNet/Test_images/resampled_test")
+folders.append("/content/projektR/notebooks/UNet/Test_images/resampled_test_masks")
+folders.append("/content/projektR/notebooks/UNet/Test_images/extracted_test")
+folders.append("/content/projektR/notebooks/UNet/Test_images/extracted_test_masks")
 
 for folder in folders:
 	for filename in os.listdir(folder):

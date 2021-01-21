@@ -19,8 +19,12 @@ folders.append(validation_path)
 validation_masks_path = config.valid_orig + "_masks"
 folders.append(validation_masks_path)
 
-# simple version for working with CWD
-#print len([name for name in os.listdir('.') if os.path.isfile(name)])
+test_path = config.test_orig
+folders.append(test_path)
+
+test_masks_path = config.test_orig + "_masks"
+folders.append(test_masks_path)
+
 
 # path joining version for other paths
 for folder in folders:

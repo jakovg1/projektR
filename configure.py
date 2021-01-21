@@ -26,7 +26,7 @@ class Config:
 		self.LoadThread = 0
 	#====training configure
 		self.epochsize = 50
-		self.lr = 0.0001 #initial learning rate
+		self.lr = 0.00005 #initial learning rate
 		self.gamma = 0.1
 		self.lr_epoch_step = 30
 		self.save_model_epoch = 2
